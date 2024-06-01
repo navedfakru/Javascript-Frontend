@@ -29,4 +29,29 @@ const myFunction = function(){
     console.log("Hello World")
 }
 
-console.log(typeof heros)
+// console.log(typeof heros)
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack (Primitive) , Heap (Non-Primitive)
+
+let myYoutubeName = "hiteshchoudharydotcom"
+
+let anothername = myYoutubeName
+anothername = "chaiaurcode"
+
+// console.log(myYoutubeName);
+// console.log(anothername);
+
+let userOne = {
+    email: "user@google.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne
+
+userTwo.email = "naved@10055@gmail.com"
+
+// console.log(userOne.email)
+// console.log(userTwo.email)
+
