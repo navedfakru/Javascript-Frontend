@@ -34,4 +34,5 @@ JsUser.greetingTo = function(){
 }
 
 console.log(JsUser.greeting());
-console.log(JsUser.greetingTo());
+console.log(JsUser.greetingTo()); 
+
