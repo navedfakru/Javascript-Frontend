@@ -39,6 +39,7 @@ function three(){
     console.log("Three")
 }
 
-one()
-two()
-three()
+// one()
+// two()
+// three()
+
