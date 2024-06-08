@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body style="background-color: #212121; color: white;">
+    <nav class="navbar navbar-light bg-light justify-content-between" style="color: black;">
+        <a style="cursor: pointer;" id="hitesh" class="navbar-brand">GitHub</a>
+        <form class="form-inline">
+          <input id="users" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button id="button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+    <div class="card" style="width: 18rem; color: black;">
+        <img id="image" class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text"></p>
+          <a target="_blank" href="#" id="link" class="btn btn-primary">Go to GitHub</a>
+        </div>
+      </div>
+</body>
+<script>
+    const image = document.getElementById("image")
+    const bio = document.querySelector('.card-text')
+    const title = document.querySelector('.card-title')
+    const link = document.querySelector('#link')
+    const form = document.querySelector('form')
+    const hitesh = document.querySelector("#hitesh")
+    // console.log(bio)
+    // call api
+    function apiCall(name = "hiteshchoudhary"){
+        const requestUrl = `https://api.github.com/users/${name}`
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState)
+            if(xhr.readyState === 4){
+                const data = JSON.parse(this.responseText)
+                // console.log(typeof data)
+                console.log(data.followers);
+                image.src = `${data.avatar_url}`
+                bio.innerHTML = `${data.bio}`
+                title.innerHTML = `${(data.name).toUpperCase()}`
+                link.href = `${data.html_url}`
+                // console.log(requestUrl)
+            }
+        }
+        xhr.send()
+    }
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault()
+        let users = document.querySelector('#users').value
+        // return users
+        apiCall(users)
+    })
+
+    hitesh.addEventListener('click', function(e){
+        apiCall()
+    })
+
+    apiCall()
+    
+</script>
+</html>
