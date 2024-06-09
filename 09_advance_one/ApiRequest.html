@@ -32,38 +32,60 @@
     const hitesh = document.querySelector("#hitesh")
     // console.log(bio)
     // call api
-    function apiCall(name = "hiteshchoudhary"){
-        const requestUrl = `https://api.github.com/users/${name}`
-        const xhr = new XMLHttpRequest()
-        xhr.open('GET', requestUrl)
-        xhr.onreadystatechange = function(){
-            console.log(xhr.readyState)
-            if(xhr.readyState === 4){
-                const data = JSON.parse(this.responseText)
-                // console.log(typeof data)
-                console.log(data.followers);
-                image.src = `${data.avatar_url}`
-                bio.innerHTML = `${data.bio}`
-                title.innerHTML = `${(data.name).toUpperCase()}`
-                link.href = `${data.html_url}`
-                // console.log(requestUrl)
-            }
-        }
-        xhr.send()
-    }
+    // function apiCall(name = "hiteshchoudhary"){
+    //     const requestUrl = `https://api.github.com/users/${name}`
+    //     const xhr = new XMLHttpRequest()
+    //     xhr.open('GET', requestUrl)
+    //     xhr.onreadystatechange = function(){
+    //         // console.log(xhr.readyState)
+    //         if(xhr.readyState === 4){
+    //             const data = JSON.parse(this.responseText)
+    //             // console.log(typeof this.responseText)
+    //             // console.log(data.followers);
+    //             image.src = `${data.avatar_url}`
+    //             bio.innerHTML = `${data.bio}`
+    //             title.innerHTML = `${(data.name).toUpperCase()}`
+    //             link.href = `${data.html_url}`
+    //             // console.log(requestUrl)
+    //         }
+    //     }
+    //     xhr.send()
+    // }
 
-    form.addEventListener('submit', function(e){
-        e.preventDefault()
-        let users = document.querySelector('#users').value
-        // return users
-        apiCall(users)
-    })
+    // form.addEventListener('submit', function(e){
+    //     e.preventDefault()
+    //     let users = document.querySelector('#users').value
+    //     // return users
+    //     apiCall(users)
+    // })
 
-    hitesh.addEventListener('click', function(e){
-        apiCall()
-    })
+    // hitesh.addEventListener('click', function(e){
+    //     apiCall()
+    // })
 
+    // apiCall()
+
+ const apiCall = async (name = "hiteshchoudhary") => {
+    const response = await fetch(`https://api.github.com/users/${name}`)
+    const data = await response.json()
+    image.src = `${data.avatar_url}`
+    bio.innerHTML = `${data.bio}`
+    title.innerHTML = `${(data.name).toUpperCase()}`
+    link.href = `${data.html_url}`
+ }
+
+form.addEventListener('submit', function(e){
+    e.preventDefault()
+    let users = document.querySelector('#users').value
+    // return users
+    apiCall(users)
+})
+
+hitesh.addEventListener('click', function(e){
     apiCall()
+})
+
+apiCall()
     
 </script>
 </html>
