@@ -36,5 +36,6 @@ function User(username, loginCount, isLoggedIn){
 
 const userOne = new User("hites", 12, true);
 const userTow = new User("ChaiAurCode", 11, false)
-console.log(userOne.constructor);
+// console.log(userOne.constructor);
 // console.log(userTow)
+
