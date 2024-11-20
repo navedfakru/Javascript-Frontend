@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 const promiseOne = new Promise(function(resolve, reject){
   // do an async task
   // db calls cryptography, network

@@ -1,4 +1,4 @@
-// Perimitive
+/* // Perimitive
 // 7 types: String, Number, Boolean, null, undefined, Symbol, BigInt
 const score =  100
 const scoreValue = 100.3
@@ -55,3 +55,25 @@ userTwo.email = "naved@10055@gmail.com"
 // console.log(userOne.email)
 // console.log(userTwo.email)
 
+ */
+
+// Stack (primitive), Heap (Non-Primitive)
+
+let myYoutubename = "hiteshchoudharydotcom"
+
+let anothername = myYoutubename
+anothername = "chaiaurcode"
+console.log(anothername)
+console.log(myYoutubename)
+
+
+let userOne = {
+    email: "user@google.com",
+    upi: "user@ybl"
+}
+
+let userTwo = userOne;
+
+userTwo.email = "hitesh@google.com"
+console.log(userOne.email);
+console.log(userTwo.email);
