@@ -9,7 +9,10 @@
 
   <script>
     const contenstring = "Hello World";
-    document.body.innerHTML = contenstring.blink()
+    let str = contenstring.split("")
+    str.map((index) => {
+      document.createElement('h1').innerHTML = index
+    })
   </script>
 </body>
 </html>
