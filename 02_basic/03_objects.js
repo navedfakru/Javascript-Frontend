@@ -7,32 +7,22 @@ const mySym = Symbol("key1")
 const JsUser = {
     name: "Naved",
     "full name": "Naved Ansari",
-    [mySym]: "mykey1",
     age: 18,
     location: "Jaipur",
     email: "htiesh@gooogle.com",
     isLoggedIn: false,
-    lastLoginDays: ["Monday", "Saturday"]
+    lastLoginDays: ["Monday", "Saturday"],
+    [mySym] : "HelloKey"
 }
-
-// console.log(JsUser.email)
-// console.log(JsUser["email"])
-// console.log(JsUser["full name"])
 // console.log(JsUser[mySym])
 
-JsUser.email = "hitesh@chatgpt.com"
+// JsUser.email = "naved@google.com"
 // Object.freeze(JsUser)
-JsUser.email = "hitesh@microsoft.com"
+// JsUser.email = "naved@micorsoft.com"
 // console.log(JsUser)
 
 JsUser.greeting = function(){
-    console.log(`Hello JsUser`)
+    console.log(`Hello js User, ${this.name}`)
 }
 
-JsUser.greetingTo = function(){
-    console.log(`Hello JsUser ${this.name}`);
-}
-
-console.log(JsUser.greeting());
-console.log(JsUser.greetingTo()); 
-
+console.log(JsUser.greeting())

@@ -1,4 +1,4 @@
-// const tinderUser = new Object()
+/* // const tinderUser = new Object()
 const tinderUser = {}
 
 tinderUser.id = "123abc"
@@ -75,4 +75,14 @@ console.log(instructor);
     {},
     {},
     {}
-]
+] */
+
+const course = {
+    coursename: "Js in hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+}
+
+const  {courseInstructor, coursename, price} = course
+
+console.log(courseInstructor)

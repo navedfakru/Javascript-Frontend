@@ -1,4 +1,4 @@
-// Dates
+/* // Dates
 
 let myDate = new Date()
 
@@ -30,4 +30,21 @@ newDate.toLocaleString('en-US', {
     timeZone: "America/New_York"
 })
 
-console.log(newDate)
+console.log(newDate) */
+
+let myDate = new Date()
+// console.log(myDate)
+// console.log(myDate.toDateString())
+// console.log(myDate.toLocaleString())
+// console.log(typeof myDate)
+
+let myCreateDate = new Date(2023, 0, 23)
+// console.log(myCreateDate.toDateString())
+
+console.log(myDate.toLocaleString('default', {
+    weekday: 'short'
+}))
+
+console.log(myDate.toLocaleTimeString('ar', {
+    weekday: 'long'
+}))
