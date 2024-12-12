@@ -15,4 +15,17 @@
 #
 # Internal Working of python | Copy, reference counts, slice
 
+#
+#  Number in depth
 
+#
+# String in python
+
+#
+# List in Python
+
+#
+# Dictionary in Python
+
+#
+# Tuples in Python
