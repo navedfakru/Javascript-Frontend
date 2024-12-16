@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tik Tak Toe Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .cell {
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .cell:hover {
+      transform: scale(1.1);
+    }
+
+    .winning-cell {
+      background-color: #4ade80 !important;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.5;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-purple-600 to-blue-500 min-h-screen flex flex-col justify-center items-center">
+  <h1 class="text-white text-4xl font-bold mb-8">Tik Tak Toe</h1>
+  <button id="startBtn"
+    class="px-6 py-3 bg-teal-500 text-white font-semibold text-lg rounded-full hover:bg-teal-400 mb-6">
+    Start Game
+  </button>
+  <div id="gameBoard" class="grid grid-cols-3 gap-4 hidden">
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+    <div class="cell bg-white w-20 h-20 flex justify-center items-center text-3xl rounded-lg shadow-md cursor-pointer">
+    </div>
+  </div>
+
+  <div id="winnerPopup" class="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center hidden">
+    <div class="bg-white p-8 rounded-lg text-center">
+      <h2 id="winnerText" class="text-2xl font-bold mb-4"></h2>
+      <button id="restartBtn" class="px-6 py-3 bg-teal-500 text-white font-semibold rounded-full hover:bg-teal-400">
+        Restart Game
+      </button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const startBtn = document.getElementById("startBtn");
+      const gameBoard = document.getElementById("gameBoard");
+      const cells = document.querySelectorAll(".cell");
+      const winnerPopup = document.getElementById("winnerPopup");
+      const winnerText = document.getElementById("winnerText");
+      const restartBtn = document.getElementById("restartBtn");
+
+      let currentPlayer = "X";
+      let board = ["", "", "", "", "", "", "", "", ""];
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      startBtn.addEventListener("click", () => {
+        gameBoard.classList.remove("hidden");
+        startBtn.classList.add("hidden");
+      });
+
+      cells.forEach((cell, index) => {
+        cell.addEventListener("click", () => {
+          if (board[index] === "" && winnerPopup.classList.contains("hidden")) {
+            board[index] = currentPlayer;
+            cell.textContent = currentPlayer;
+            cell.style.color = currentPlayer === "X" ? "#f87171" : "#60a5fa";
+            checkWinner();
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+          }
+        });
+      });
+
+      const checkWinner = () => {
+        for (let combo of winningCombinations) {
+          const [a, b, c] = combo;
+          if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+            highlightWinner(combo);
+            showWinner(board[a]);
+            return;
+          }
+        }
+        if (!board.includes("")) {
+          showWinner("Draw");
+        }
+      };
+
+      const highlightWinner = (combo) => {
+        combo.forEach((index) => {
+          cells[index].classList.add("winning-cell");
+        });
+      };
+
+      const showWinner = (winner) => {
+        winnerPopup.classList.remove("hidden");
+        winnerText.textContent =
+          winner === "Draw" ? "It's a Draw!" : `Player ${winner} Wins!`;
+      };
+
+      restartBtn.addEventListener("click", () => {
+        board = ["", "", "", "", "", "", "", "", ""];
+        currentPlayer = "X";
+        cells.forEach((cell) => {
+          cell.textContent = "";
+          cell.classList.remove("winning-cell");
+        });
+        winnerPopup.classList.add("hidden");
+      });
+    });
+
+  </script>
+</body>
+
+</html>

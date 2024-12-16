@@ -20,3 +20,8 @@ heros.map(hero => {
 getUpper("naved");
 signUpUser("naved", "naved@google.com", false);
 loginUser("h", "h@h.com", true);
+
+
+const array = []
+
+array.push()
