@@ -9,7 +9,12 @@ type User = {
 
 const allUsers: User[] = []
 
+const MLModels: number[][] = [
+  [255,255, 255],
+  []
+]
+
 superHeros.push("spiderman")
 herPower.push(2 )
 
-allUsers.push()
+allUsers.push({name: "", isActive: true})
