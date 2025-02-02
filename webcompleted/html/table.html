@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML table</title>
+    <style>
+      th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        border-radius: 10px;
+      }
+      th, td {
+        background-color: cornflowerblue;
+        color: white;
+        /* padding: 10px; */
+      }
+      th {
+        text-align: center;
+      }
+      td {
+        padding: 20px;
+      }
+      table {
+        border-spacing: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="width: 100%; height: 100%;">
+      <tr>
+        <th style="width: 100%;" colspan="2">Company</th>
+        <th>Country</th>
+      </tr>
+      <tr style="height: 200px;">
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td><img src="./images/germany_flag.jpeg" style="height: 50px;" alt=""></td>
+      </tr>
+      <tr>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+      </tr>
+    </table>
+  </body>
+</html>
