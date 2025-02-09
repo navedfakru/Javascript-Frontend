@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Id</title>
+    <style>
+      #myHeader {
+        background-color: lightblue;
+        color: black;
+        padding: 20px;
+        text-align: center;
+      }
+      .city {
+        background-color: tomato;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="myHeader">myHeader</h1>
+    <a href="#c4">jump to Tokyo</a>
+    <a href="09_clsass.html#jump">Jump to Chapter 4</a>
+    <h2 class="city">London</h2>
+    <p>London is the capital of England.</p>
+    <h2 class="city">Paris</h2>
+    <p>Paris is the capital of France.</p>
+    <h2 id="c4" class="city">Tokyo</h2>
+    <p>Tokyo is the capital of Japan.</p>
+    <script>
+      function displayResult(yourmessage) {
+        document.getElementById("myHeader").innerHTML = `<p>${yourmessage}</p>`;
+      }
+      displayResult("Hello World!");
+    </script>
+  </body>
+</html>
