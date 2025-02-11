@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Input Attributes</title>
+  </head>
+  <body>
+    <h1>HTML Input Attributes</h1>
+    <h2>The value Attribute</h2>
+    <form>
+      <label for="fname">first name:</label>
+      <input type="text" name="fname" id="fname" value="John" readonly /><br />
+      <label for="lname">last name</label>
+      <input type="text" name="lname" id="lname" value="Doe" size="50" />
+    </form>
+    <h2>The maxleght Attribute</h2>
+    <form>
+      <label for="fname">first name:</label>
+      <input type="text" name="fname" id="fname" value="John" readonly /><br />
+      <label for="lname">last name</label>
+      <input type="text" name="lname" id="maxleght" value="Doe" maxlength="5" />
+      <p id="demo"></p>
+    </form>
+    <h2>min max Attribute</h2>
+    <form>
+      <label for="datemax">Enter a date before 1980-01-01:</label>
+      <input
+        type="date"
+        id="datemax"
+        name="datemax"
+        max="1979-12-31"
+      /><br /><br />
+
+      <label for="datemin">Enter a date after 2000-01-01:</label>
+      <input
+        type="date"
+        id="datemin"
+        name="datemin"
+        min="2000-01-02"
+      /><br /><br />
+
+      <label for="quantity">Quantity (between 1 and 5):</label>
+      <input type="range" id="quantity" name="quantity" min="1" max="5" />
+    </form>
+    <script>
+      function maxleght() {
+        var x = document.getElementById("maxleght").value;
+        document.getElementById("demo").innerHTML = x;
+      }
+    </script>
+  </body>
+</html>

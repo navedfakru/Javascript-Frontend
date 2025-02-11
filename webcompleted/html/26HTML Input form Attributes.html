@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Input form* Attributes</title>
+  </head>
+  <body>
+    <h1>HTML Input form* Attributes</h1>
+    <form
+      action="https://www.w3schools.com/action_page.php"
+      id="form1"
+      target="_blank"
+    >
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname" form="form1" />
+    <input
+      type="submit"
+      value="Submit formation"
+      form="form1"
+      formaction="https://www.w3schools.com/action_page2.php"
+    />
+    <h2>formenctype</h2>
+    <form
+      action="https://www.w3schools.com/action_page_binary.asp"
+      method="post"
+      target="_blank"
+    >
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" /><br /><br />
+      <input type="submit" value="Submit" />
+      <input
+        type="submit"
+        formenctype="application/x-www-form-urlencoded"
+        value="Submit as Multipart/form-data"
+      />
+    </form>
+    <h2>fomrated Attributes</h2>
+    <form action="https://www.w3schools.com/action_page.php" method="get">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" /><br /><br />
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" /><br /><br />
+      <input type="submit" value="Submit using GET" />
+      <input type="submit" formmethod="post" value="Submit using POST" />
+      <input type="submit" value="submit usinge new tab" formtarget="_blank" />
+      <input
+        type="submit"
+        value="submit without validation"
+        formnovalidate="formnovalidate"
+      />
+    </form>
+    <h2>no validate</h2>
+    <form action="https://www.w3schools.com/action_page.php" novalidate>
+      <label for="email">Enter your email:</label>
+      <input type="email" id="email" name="email" /><br /><br />
+      <input type="submit" value="Submit" />
+      <input type="image" src="images/germany_flag.jpeg" alt="">
+    </form>
+  </body>
+</html>
