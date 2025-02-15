@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWP Calculator - Neon Style</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      max-width: 800px;
+      width: 90%;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: #00ffcc;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #00ffff;
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #00ffcc;
+      box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background: linear-gradient(135deg, #00ffff, #00ffcc);
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    }
+
+    #results {
+      margin-top: 2rem;
+      display: none;
+      animation: slideIn 0.5s ease-in-out;
+    }
+
+    #balanceTable {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+
+    #balanceTable th, #balanceTable td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    #balanceTable th {
+      background: rgba(0, 255, 255, 0.1);
+      color: #00ffff;
+      font-weight: 600;
+    }
+
+    #balanceTable td {
+      color: #00ffcc;
+    }
+
+    #summary {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #00ffcc;
+    }
+
+    canvas {
+      margin-top: 1.5rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .input-group input {
+        font-size: 0.9rem;
+      }
+
+      button {
+        font-size: 1rem;
+      }
+
+      #balanceTable th, #balanceTable td {
+        padding: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SWP Calculator</h1>
+    <form id="swpForm">
+      <div class="input-group">
+        <label for="initialAmount">Initial Investment Amount (₹):</label>
+        <input type="number" id="initialAmount" required>
+      </div>
+      <div class="input-group">
+        <label for="withdrawalAmount">Monthly Withdrawal Amount (₹):</label>
+        <input type="number" id="withdrawalAmount" required>
+      </div>
+      <div class="input-group">
+        <label for="annualReturn">Expected Annual Return Rate (%):</label>
+        <input type="number" id="annualReturn" step="0.1" required>
+      </div>
+      <div class="input-group">
+        <label for="duration">Investment Duration (Years):</label>
+        <input type="number" id="duration" required>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div id="results">
+      <h2>Results</h2>
+      <table id="balanceTable">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Month</th>
+            <th>Withdrawal (₹)</th>
+            <th>Remaining Balance (₹)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <canvas id="chart"></canvas>
+      <div id="summary"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('swpForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Get user inputs
+      const initialAmount = parseFloat(document.getElementById('initialAmount').value);
+      const withdrawalAmount = parseFloat(document.getElementById('withdrawalAmount').value);
+      const annualReturn = parseFloat(document.getElementById('annualReturn').value) / 100;
+      const duration = parseInt(document.getElementById('duration').value);
+
+      // Validate inputs
+      if (isNaN(initialAmount) || isNaN(withdrawalAmount) || isNaN(annualReturn) || isNaN(duration)) {
+        alert('Please enter valid numbers in all fields.');
+        return;
+      }
+
+      // Initialize variables
+      let balance = initialAmount;
+      const results = [];
+      const labels = [];
+      const data = [];
+      let totalWithdrawals = 0;
+
+      // Calculate monthly withdrawal schedule
+      for (let year = 1; year <= duration; year++) {
+        for (let month = 1; month <= 12; month++) {
+          // Apply monthly return (annual return divided by 12)
+          const monthlyReturn = annualReturn / 12;
+          balance = balance * (1 + monthlyReturn) - withdrawalAmount;
+          if (balance < 0) balance = 0; // Prevent negative balance
+          totalWithdrawals += withdrawalAmount;
+
+          // Store results for display
+          results.push({
+            year,
+            month,
+            withdrawal: withdrawalAmount,
+            balance: balance,
+          });
+
+          // For Chart.js
+          if (month === 12) {
+            labels.push(`Year ${year}`);
+            data.push(balance.toFixed(2));
+          }
+        }
+      }
+
+      // Display results in table
+      const tableBody = document.querySelector('#balanceTable tbody');
+      tableBody.innerHTML = '';
+      results.forEach((result) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${result.year}</td>
+          <td>${result.month}</td>
+          <td>₹${result.withdrawal.toLocaleString('en-IN')}</td>
+          <td>₹${result.balance.toLocaleString('en-IN')}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+
+      // Display summary
+      const summary = document.getElementById('summary');
+      summary.innerHTML = `
+        <p>Total Withdrawals: ₹${totalWithdrawals.toLocaleString('en-IN')}</p>
+        <p>Final Balance: ₹${balance.toLocaleString('en-IN')}</p>
+      `;
+
+      // Show results section
+      document.getElementById('results').style.display = 'block';
+
+      // Generate Chart.js line chart
+      const ctx = document.getElementById('chart').getContext('2d');
+      if (window.myChart) {
+        window.myChart.destroy(); // Destroy existing chart if any
+      }
+      window.myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: 'Remaining Balance (₹)',
+            data: data,
+            borderColor: '#00ffff',
+            borderWidth: 2,
+            pointBackgroundColor: '#00ffcc',
+            fill: false,
+          }],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(0, 255, 255, 0.1)',
+              },
+              ticks: {
+                color: '#00ffcc',
+              },
+            },
+            x: {
+              grid: {
+                color: 'rgba(0, 255, 255, 0.1)',
+              },
+              ticks: {
+                color: '#00ffcc',
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: '#00ffcc',
+              },
+            },
+          },
+        },
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Css Selector</title>
+  <style>
+    /* The CSS element Selector */
+    p {
+      font-size: 30px;
+      color: red;
+      /* text-align: center; */
+    }
+    /* The CSS id Selector */
+    #para1 {
+      text-align: center;
+    }
+    /* The CSS class Selector */
+    .paragraph {
+      /* text-align: center; */
+      background-color: yellow;
+    }
+    .large {
+      font-weight: bold;
+    }
+    /* The CSS Universal Selector */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /* The CSS Grouping Selector */
+    h2, p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <p>The CSS element Selector</p>
+  <h2 id="para1">The CSS id Selector</h2>
+  <h2 class="paragraph">same</h2>
+  <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique tempore debitis eveniet optio atque laboriosam ducimus blanditiis repudiandae iusto quaerat?</p>
+  <p class="center large">This paragraph refers to two classes.</p>
+</body>
+</html>
