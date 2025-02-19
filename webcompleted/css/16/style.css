@@ -1,0 +1,58 @@
+/* body {
+  background-color: #1D2A35;
+  color: white;
+}
+
+/* div {
+  border: 1px solid white;
+  padding: 8px;
+}
+
+div p {
+  text-align: justify;
+  color: white;
+  letter-spacing: 3px;
+  text-indent: 100px;
+}
+
+div h1 {
+  text-align: center;
+  color: green;
+  text-transform: uppercase;
+}
+
+div p a {
+  color: #008CBA;
+  text-decoration: none;
+} */
+
+/* .textalignment {
+  height: 500px;
+}
+
+.textalignment h1 {
+  text-align: center;
+}
+
+.ex1 {
+  direction: rtl;
+  unicode-bidi:  bidi-override;
+}
+
+ span {
+  vertical-align: baseline;
+}
+ span {
+  vertical-align: middle; */
+/* }
+ span {
+  vertical-align: text-bottom;
+}
+ span {
+  vertical-align: sub;
+} */
+
+p {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}

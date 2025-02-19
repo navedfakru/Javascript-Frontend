@@ -1,0 +1,10 @@
+div {
+  width: 320px;
+  height: 50px;
+  padding: 3rem;
+  border: 5px solid gray;
+  margin: 10px;
+  /* box-sizing: border-box; */
+}
+
+/* 320 + 10 + 10 + 5 + 5 = 350 */
