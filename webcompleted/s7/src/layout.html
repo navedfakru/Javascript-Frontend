@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout</title>
+  <link rel="stylesheet" href="./output.css">
+</head>
+<body>
+  <div class="grid sm:grid-cols-2 gap-4 m-4 grid-cols-2">
+    <div class="min-h-[100px] bg-orange-500 shadow rounded-lg"></div>
+    <div class="min-h-[100px] bg-teal-500 shadow rounded-lg"></div>
+  </div>
+  <div class="grid sm:grid-cols-4 grid-cols-2 gap-4 m-4">
+    <div class="min-h-[100px] bg-orange-500 shadow rounded-lg"></div>
+    <div class="min-h-[100px] bg-teal-500 shadow rounded-lg"></div>
+    <div class="min-h-[100px] bg-red-500 shadow rounded-lg"></div>
+    <div class="min-h-[100px] bg-purple-500 shadow rounded-lg"></div>
+  </div>
+  <div class="grid sm:grid-cols-12 gap-4 m-4">
+    <div class="min-h-[100px] hidden sm:block sm:col-span-2 bg-orange-500 shadow rounded-lg"></div>
+    <div class="min-h-[100px] sm:col-span-10 bg-teal-500 shadow rounded-lg"></div>
+  </div>
+  <div class="grid sm:grid-cols-12 gap-4 m-4">
+    <div class="min-h-[100px] sm:col-span-2 bg-orange-500 shadow rounded-lg lg:col-span-2 hidden sm:block"></div>
+    <div class="min-h-[100px] sm:col-span-10 bg-teal-500 shadow rounded-lg lg:col-span-8"></div>
+    <div class="min-h-[100px] lg:col-span-2 bg-purple-500 shadow rounded-lg hidden lg:block"></div>
+  </div>
+</body>
+</html>
