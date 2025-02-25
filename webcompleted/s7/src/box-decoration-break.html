@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>box-decoration-break</title>
+  <link rel="stylesheet" href="output.css">
+</head>
+
+<body>
+  <h1>box-decoration-break</h1>
+  <span class="box-decoration-slice bg-linear-to-r from-indigo-600 to-pink-500 px-2 text-white ...">
+    Hello<br />Slice
+  </span>
+  <span class="box-decoration-clone md:box-decoration-slice bg-linear-to-r from-indigo-600 to-pink-500 px-2 text-white ...">
+    Hello<br />Clone
+  </span>
+  <div class="mx-auto bg-blue-500 text-center p-20">
+    <span class="text-2xl font-bold border-2 box-decoration-clone *:text-green-600">
+      Lorem ipsum, dolor <br>sit amet consectetur <br>adipisicing elit. Facilis itaque<br> recusandae nostrum, provident<br> perspiciatis nihil saepe magni <br>inventore libero dicta.
+    </span>
+  </div>
+</body>
+
+</html>
