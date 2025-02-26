@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Layout - The display Property</title>
+  <style>
+    #displaynone {
+      display: none;
+    }
+    button {
+      color: white;
+      font-weight: bold;
+      background-color: green;
+      padding: 10px 20px;
+      font-size: 24px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>CSS Layout - The display Property</h1>
+  <div style="display: inline;">I am a div</div>
+  <span style="display: inherit;">I am a span</span>
+  <button id="btn" onclick="show()">SHOW</button>
+  <div id="displaynone">
+    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, vitae?</p>
+    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, vitae?</p>
+    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, vitae?</p>
+  </div>
+  <p>div is hide</p>
+  <script>
+    let display = document.getElementById('displaynone')
+    let button = document.getElementById('btn')
+    function show() {
+      if (display.style.display === 'none' && button.innerText === 'SHOW'){
+        display.style.display = 'block'
+        button.style.backgroundColor = 'red'
+        button.innerText = 'HIDE'
+      } else {
+        display.style.display = 'none'
+        button.innerText = 'SHOW'
+        button.style.backgroundColor = 'green'
+      }
+    }
+  </script>
+</body>
+
+</html>

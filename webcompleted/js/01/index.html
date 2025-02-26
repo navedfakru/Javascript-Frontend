@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Tutorial</title>
+  <style>
+    div {
+      display: none;
+      margin:  auto;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: black;
+      color: white;
+      font-size: 24px;
+      font-family: fantasy ;
+      font-weight: bold;
+      max-width: 50%;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Tutorial</h1>
+  <button onclick="show()" style="border: none; padding: 10px 20px; background-color: blue; color: white;" type="button">Show the Time</button>
+  <div id="demo"></div>
+  <script>
+    let demotime = document.getElementById("demo")
+    function show() {
+      demotime.style.display = 'block'
+      setInterval(() => {
+        let time = new Date()
+        demotime.innerHTML = time
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
