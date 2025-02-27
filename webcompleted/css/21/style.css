@@ -1,0 +1,89 @@
+.ex1 {
+  position: static;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  left: 500px;
+}
+
+.ex2 {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  left: 500px;
+}
+
+div.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #73AD21;
+}
+
+p {
+  font-size: 20px;
+  font-weight: bold;
+  color: orange;
+  position: absolute;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: black;
+  color: white;
+  margin: 20px;
+}
+.top-left {
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-left {
+  bottom: 8px;
+  left: 16px;
+}
+.bottom-right {
+  bottom: 8px;
+  right: 16px;
+}
+
+.center {
+  text-align: center;
+  width: 100%;
+  top: 50%;
+}
+
+.box {
+  background-color: green;
+  box-sizing: border-box;
+  height: 200px;
+  width: 200px;
+  position: relative;
+  top: 20px;
+  left: 30px;
+}
+
+.box1 {
+  width: 200px;
+  height: 100px;
+  background: red;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.box2 {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  background: blue;
+}

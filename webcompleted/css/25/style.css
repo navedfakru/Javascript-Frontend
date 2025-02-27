@@ -1,0 +1,25 @@
+.inline-block {
+  background: lightgreen;
+  width: 150px;
+  height: 50px;
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+  line-height: 50px;
+}
+
+.nav {
+  background-color: yellow;
+  list-style-type: none;
+  text-align: center; 
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  display: inline-block;
+  background-color: green;
+  /* display: inline; */
+  font-size: 20px;
+  padding: 20px;
+}

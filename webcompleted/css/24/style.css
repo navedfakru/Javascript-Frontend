@@ -1,0 +1,47 @@
+img {
+  height: 200px;
+  float: left;
+  margin-right: 10px;
+}
+
+/* div {
+  float: left;
+  padding: 15px;
+}
+
+.div1 {
+  background: red;
+}
+
+.div2 {
+  background: yellow;
+}
+
+.div3 {
+  background: green;
+} */
+
+.div1 {
+  border: 2px solid black;
+  /* overflow: hidden; */
+}
+
+.div2 {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  float: right;
+}
+.div3 {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  float: left;
+  margin-right: 100px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
