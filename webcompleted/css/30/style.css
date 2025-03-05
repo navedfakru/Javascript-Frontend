@@ -1,0 +1,15 @@
+img {
+  height: 300px;
+  opacity: 0.1;
+}
+
+img:hover {
+  opacity: 1;
+  /* transition: 3ms; */
+}
+
+div 
+{
+  display: flex;
+  flex-wrap: wrap;
+}

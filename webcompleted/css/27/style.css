@@ -1,0 +1,10 @@
+/* Descendant Combinator */
+/* div p {
+  background-color: green;
+} */
+
+/* Child Combinator */
+
+div > p {
+  background-color: yellow;
+}

@@ -1,0 +1,30 @@
+.link:link {
+  color: red;
+}
+
+.link:hover {
+  color: pink;
+}
+
+.link:visited {
+  color: hotpink;
+}
+
+.link:active {
+  color: blue;
+}
+
+p {
+  display: none;
+  background-color: yellow;
+  padding: 20px;
+}
+
+div:hover  p{
+  display: block;
+}
+
+input:focus {
+  padding: 20px;
+
+}

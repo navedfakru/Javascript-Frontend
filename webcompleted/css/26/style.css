@@ -1,0 +1,64 @@
+h1 {
+  text-align: center;
+}
+
+
+.box1 {
+  background-color: red;
+  margin: auto;
+}
+
+.text {
+  text-align: center;
+  font-weight: 600;
+  color: yellow;
+}
+
+img {
+  display: block;
+  height: 200px;
+  margin: auto;
+}
+
+.box2 {
+  background-color: green;
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+.box3 {
+  background-color: rebeccapurple;
+}
+
+.box4 {
+  height: 0;
+  background-color: blue;
+  padding: 0 0;
+}
+
+/* .lineheght {
+  border: 2px solid green;
+  line-height: 200px;
+  height: 200px;
+  text-align: center;
+}
+.center {
+  line-height: 1.5;
+  display: inline-block;
+  vertical-align: middle;
+} */
+
+.lineheght {
+  border: 3px solid green;
+  height: 200px;
+  position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  /* transform: translate(-50%, -50%); */
+  transform: translate(50%, -50%);
+}
