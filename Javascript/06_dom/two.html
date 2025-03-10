@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Chai aur Code</title>
+    <style>
+        body {
+            background-color: #212121;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="parent">
-        <!-- This is curent -->
+        <!-- this is a comment -->
         <div class="day">Monday</div>
         <div class="day">Tuesday</div>
         <div class="day">Wednesday</div>
         <div class="day">Thursday</div>
     </div>
     <Script>
-        const parent = document.querySelector('.parent');
-        // console.log(parent);
-        // console.log(parent.children);
+        const parent = document.querySelector('.parent')
+        // console.log(parent)
+        // console.log(parent.children)
         // console.log(parent.children[1].innerHTML)
 
         // for (let i = 0; i < parent.children.length; i++) {
-        //     const element = parent.children[i].innerHTML;
-        //     console.log(element)
+        //     console.log(parent.children[i].innerHTML) 
         // }
+
         parent.children[1].style.color = "orange"
         // console.log(parent.firstElementChild);
         // console.log(parent.lastElementChild);
@@ -31,8 +37,28 @@
         // console.log(dayOne);
         // console.log(dayOne.parentElement);
         // console.log(dayOne.nextElementSibling);
-        console.log("NODES: ", parent.childNodes);
-        const par = Array.from(parent.children)
+
+        console.log("NODES: ", parent.childNodes)
+
+        // const parent = document.querySelector('.parent');
+        // console.log(parent);
+        // console.log(parent.children);
+        // console.log(parent.children[1].innerHTML)
+
+        // for (let i = 0; i < parent.children.length; i++) {
+        //     const element = parent.children[i].innerHTML;
+        //     console.log(element)
+        // }
+        // parent.children[1].style.color = "orange"
+        // console.log(parent.firstElementChild);
+        // console.log(parent.lastElementChild);
+
+        // const dayOne = document.querySelector('.day');
+        // console.log(dayOne);
+        // console.log(dayOne.parentElement);
+        // console.log(dayOne.nextElementSibling);
+        // console.log("NODES: ", parent.childNodes);
+        // const par = Array.from(parent.children)
 
     </Script>
 </body>

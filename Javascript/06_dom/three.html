@@ -12,21 +12,16 @@
 </body>
 <script>
     const div = document.createElement('div')
-    console.log(div);
+    console.log(div)
     div.className = "main"
     div.id = Math.round(Math.random() * 10 + 1)
     div.setAttribute("title", "generated title")
     div.style.backgroundColor = "green"
-    div.style.color = "black"
-    div.style.fontSize = "30px"
-    div.style.fontWeight = "bold"
-    div.style.borderRadius = "15px"
-    div.style.margin = "15px"
-    div.style.textAlign = "center"
-    div.style.padding = "15px"
+    div.style.padding = "12px"
     // div.innerHTML = "Chai aur code"
     const addText = document.createTextNode("chai aur code")
     div.appendChild(addText)
+
     document.body.appendChild(div)
 
     const superheroes = [
@@ -47,46 +42,110 @@
         "Captain Marvel"
     ];
 
-
-    // create Div Element 
-    const divCreate = (color, text) => {
-        const div = document.createElement('div')
-        // console.log(div);
-        div.className = "main"
-        div.id = Math.round(Math.random() * 10 + 1)
-        div.setAttribute("title", "generated title")
-        div.style.backgroundColor = color;
-        div.style.color = "black"
-        div.style.fontSize = "30px"
-        div.style.fontWeight = "bold"
-        div.style.borderRadius = "15px"
-        div.style.margin = "15px"
-        div.style.textAlign = "center"
-        div.style.padding = "15px"
-        div.style.textShadow = "2px 2px 4px white"
-        // div.innerHTML = "Chai aur code"
-        const addText = document.createTextNode(text)
-        div.appendChild(addText)
-        document.body.appendChild(div)
+    const h2Create = (bg = "red", text) => {
+        const h2 = document.createElement("h2")
+        const h2Text = document.createTextNode("Hello World")
+        h2.style.backgroundColor = bg
+        h2.style.textAlign = "center"
+        h2.style.padding = "10px"
+        h2.style.border = "1px solid black"
+        h2.style.cursor = "pointer"
+        h2.style.borderEndStartRadius = "20px"
+        h2.appendChild(document.createTextNode(text))
+        h2.addEventListener('mouseenter', () => {
+          h2.style.backgroundColor = 'lightblue';
+          h2.style.color = "black"
+        });
+        h2.addEventListener('mouseleave', () => {
+          h2.style.backgroundColor = 'red';
+          h2.style.color = "white"
+        });
+        div.appendChild(h2)
     }
 
-    const randomColor = () => {
-        // Generate a random number between 0 and 0xFFFFFF (16777215 in decimal)
-        let mathRandom = Math.random() * 0xFFFFFF;
-        // Convert the number to a hexadecimal string
-        let hexValue = Math.floor(mathRandom).toString(16);
-        // Pad the string with leading zeros if it's less than 6 characters long
-        return `#${hexValue.padStart(6, '0')}`;
+    for(let i = 0; i < superheroes.length; i++){
+        h2Create("red", superheroes[i])
     }
-    console.log(randomColor());
 
-    divCreate("#fc3c5d", "this is text orange")
+    
 
-    for (let i = 0; i < superheroes.length; i++) {
-        // console.log(randomColor())
-        let color = randomColor()
-        divCreate(color, superheroes[i])
-    }
+
+    // const div = document.createElement('div')
+    // console.log(div);
+    // div.className = "main"
+    // div.id = Math.round(Math.random() * 10 + 1)
+    // div.setAttribute("title", "generated title")
+    // div.style.backgroundColor = "green"
+    // div.style.color = "black"
+    // div.style.fontSize = "30px"
+    // div.style.fontWeight = "bold"
+    // div.style.borderRadius = "15px"
+    // div.style.margin = "15px"
+    // div.style.textAlign = "center"
+    // div.style.padding = "15px"
+    // // div.innerHTML = "Chai aur code"
+    // const addText = document.createTextNode("chai aur code")
+    // div.appendChild(addText)
+    // document.body.appendChild(div)
+
+    // const superheroes = [
+    //     "Superman",
+    //     "Batman",
+    //     "Wonder Woman",
+    //     "Spider-Man",
+    //     "Iron Man",
+    //     "Captain America",
+    //     "Thor",
+    //     "Hulk",
+    //     "Black Widow",
+    //     "Aquaman",
+    //     "Flash",
+    //     "Green Lantern",
+    //     "Doctor Strange",
+    //     "Black Panther",
+    //     "Captain Marvel"
+    // ];
+
+
+    // // create Div Element 
+    // const divCreate = (color, text) => {
+    //     const div = document.createElement('div')
+    //     // console.log(div);
+    //     div.className = "main"
+    //     div.id = Math.round(Math.random() * 10 + 1)
+    //     div.setAttribute("title", "generated title")
+    //     div.style.backgroundColor = color;
+    //     div.style.color = "black"
+    //     div.style.fontSize = "30px"
+    //     div.style.fontWeight = "bold"
+    //     div.style.borderRadius = "15px"
+    //     div.style.margin = "15px"
+    //     div.style.textAlign = "center"
+    //     div.style.padding = "15px"
+    //     div.style.textShadow = "2px 2px 4px white"
+    //     // div.innerHTML = "Chai aur code"
+    //     const addText = document.createTextNode(text)
+    //     div.appendChild(addText)
+    //     document.body.appendChild(div)
+    // }
+
+    // const randomColor = () => {
+    //     // Generate a random number between 0 and 0xFFFFFF (16777215 in decimal)
+    //     let mathRandom = Math.random() * 0xFFFFFF;
+    //     // Convert the number to a hexadecimal string
+    //     let hexValue = Math.floor(mathRandom).toString(16);
+    //     // Pad the string with leading zeros if it's less than 6 characters long
+    //     return `#${hexValue.padStart(6, '0')}`;
+    // }
+    // console.log(randomColor());
+
+    // divCreate("#fc3c5d", "this is text orange")
+
+    // for (let i = 0; i < superheroes.length; i++) {
+    //     // console.log(randomColor())
+    //     let color = randomColor()
+    //     divCreate(color, superheroes[i])
+    // }
 </script>
 
 </html>

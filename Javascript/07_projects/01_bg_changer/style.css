@@ -1,0 +1,36 @@
+html {
+  margin: 0;
+}
+
+span {
+  display: block;
+}
+
+.canva {
+  margin: 100px auto 100px;
+  width: 80%;
+  text-align: center;
+}
+
+.button {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  border: 1px solid black;
+}
+
+#grey {
+  background-color: grey;
+}
+
+#white {
+  background-color: white;
+}
+
+#yellow {
+  background-color: yellow;
+}
+
+#blue {
+  background-color: blue;
+}
